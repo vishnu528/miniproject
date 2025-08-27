@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const food = ["biriyani","mandhi","al faham"];
+        const newfood = food.push("dosa","vada");
+        const rmfood = food.shift();
+        console.log(newfood);
+         console.log(rmfood);
+        console.log(food.indexOf("dosa"));
+        console.log(food);
+        const slarray =food.slice(0,3);
+        console.log(slarray);
+        const sparray= food.splice(1,2)
+        console.log(sparray);
+        function forEach(i){
+            for(i=0;i<sparray.length;i++)
+        {
+            console.log(sparray[i])
+        }
+
+        }
+        forEach();
+
+
+
+    </script>
+</body>
+</html>

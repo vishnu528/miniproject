@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    
+    <style>
+        body{
+            background-color: rgb(237, 247, 255);
+        }
+        #product{
+
+            display:grid ;
+            grid-template-columns: auto auto auto auto ;
+          
+        }
+        .products{
+            border: 1px rgb(248, 206, 143) solid;
+            margin: 5px;
+        }
+        span{
+            padding-left: 5px;
+            text-decoration:line-through;
+            color: green;
+
+        }
+      @media (max-width: 700px){
+        #product{
+          display: grid;
+          grid-template-columns: auto;
+        }
+      }
+        @media (701px <= width <= 900px){
+          #product{
+          display: grid;
+          grid-template-columns: auto auto;
+        }
+        }
+        @media (901px <= width <= 1200px){
+          #product{
+          display: grid;
+          grid-template-columns: auto auto auto;
+        }
+        }
+        img{
+          transition: transform 0.5s ease-in-out;
+        }
+        img:hover{
+           transform:scale(1.1);
+
+        }
+
+    </style>
+   
+</head>
+<body>  
+  <header>
+    
+  
+    <nav class="navbar navbar-expand-lg bg-body-tertiary  navbar fixed-top bg-body-tertiary" data-bs-theme="dark" >
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Mini Project</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Login
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">My Profile</a></li>
+            <li><a class="dropdown-item" href="#">My Orders</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">wishlist</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<br><br><br>
+</header>
+<content>
+  <h1>Porduct List</h1>
+          <div  id="product"></div></p>
+          <p class="card-text placeholder-glow">
+      <span class="placeholder col-7"> </span>
+       
+      <span class="placeholder col-7 bg-primary" ></span>
+      <span class="placeholder col-4 bg-success"></span>
+      <span class="placeholder col-4 bg-danger"></span>
+      <span class="placeholder col-6 bg-warning"></span>
+      
+      <span class="placeholder col-8 bg-secondary"></span>
+      
+      
+
+    </p>
+    <a class="btn btn-primary disabled placeholder col-12" aria-disabled="true"></a>
+
+  
+    </div>
+    </content>
+    <script>
+      async  function fetchdata(){
+            let getdata=await fetch("https://dummyjson.com/carts");
+            try{
+                let data = await getdata.json();
+                data.carts.forEach((datas) => {
+                     datas.products.forEach((data) => {
+                        let product = document.getElementById("product");
+                        const div =document.createElement("div");
+                        div.className="shadow  p-3 m-1 bg-body-tertiary rounded ";
+                         const img = document.createElement("img");
+                        img.src=data.thumbnail;
+                        img.alt=data.title;
+                        img.width =300;
+                        const hd= document.createElement("h3");
+                        hd.innerHTML=data.title;
+                        const price =document.createElement("strong");
+                        price.innerHTML=`INR ${data.price}`;
+                        const qty = document.createElement("p")
+                        qty.innerText=`Stock:${data.quantity}`;
+                        const dper = document.createElement("p");
+                        dper.innerHTML=`Upto${data.discountPercentage}% Off`;
+                        dper.className ="badge text-bg-success"
+                     
+                     
+                        div.appendChild(img);
+                        div.appendChild(hd);
+                        div.appendChild(price);
+                        div.appendChild(qty);
+                        div.appendChild(dper);
+                        product.appendChild(div);
+                       
+                                          
+                       
+                     })
+
+                })
+             
+
+            }catch(err){
+                console.log(err)
+            }
+
+        }
+        fetchdata();
+    </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+</body>
+</html>

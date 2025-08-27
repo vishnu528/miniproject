@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            name : "vishnu",
+            age : 22,
+            place : "thrissure"
+        }
+        // Object.freeze(obj);
+        // Object.seal(obj);
+        obj.color = "red";
+        obj.name = "alan"
+        let {name} = obj;
+        delete obj.age;
+        console.log(`welcome mr ${name}`)
+        console.log(obj);
+
+        function show(name="guest"){
+            console.log(`hi mr ${name}`)
+
+        }
+        show();
+
+    </script>
+</body>
+</html>

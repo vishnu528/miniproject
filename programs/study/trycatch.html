@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="form">
+    <input type="text" id="age" placeholder="enter your age here">
+    <button type="submit">save</button>
+    </form>
+    <script>
+        const frm = document.getElementById("form");
+        let txage=0;
+        frm.addEventListener("submit",(e) => {
+            e.preventDefault();
+            
+            const txage=document.getElementById("age").value;
+
+            if(txage === ""){
+                alert("enter your age");
+
+            }else{
+
+            try{
+                textage(txage);
+            }catch(err){
+                console.log("error is :",err.message);
+
+            }finally{
+                console.log("finally")
+            }
+            }
+
+        })
+
+        function textage(age){
+            if(age <18){
+                throw new Error("your under 18")
+            }
+            else{
+                alert("your above 18 you may enter")
+            }
+        }
+    </script>
+    
+</body>
+</html>

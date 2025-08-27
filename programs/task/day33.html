@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="btn">add cart</button>
+
+    
+
+
+    <script>
+        let user = {
+            name:"naveen",
+            email:"dwudhwgdiw@gmail.com",
+            loggedin:true
+        }
+        let strdata = JSON.stringify(user);
+        localStorage.setItem("user",strdata);
+      
+        console.log(strdata);
+       
+        let parsdata=JSON.parse(strdata);
+       
+        localStorage.getItem(parsdata);
+        console.log(parsdata.name);
+        let rm =localStorage.removeItem("user")
+        console.log(rm);
+
+     
+
+        
+       
+      
+    //     localStorage.setItem("data",JSON.stringify(user));
+    //     console.log(localStorage)
+    //    let data = JSON.parse(localStorage.getItem("data"))
+    // //    console.log(data);
+    // //    console.log(data.name);
+    // //    let rm =localStorage.removeItem(data);
+    // //    console.log(rm);
+
+       
+    </script>
+</body>
+</html>

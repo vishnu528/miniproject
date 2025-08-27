@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="head">welcome to webpage</h1>
+    <button type="submit" onclick="changecolor()">change color</button>
+     <button type="submit" onclick="aaddpara()">add para</button>
+     <button type="submit" onclick="rmpara()">remove para</button>
+    <button type="submit" onclick="chnghead()">change heading</button>
+     <input type="text" id="txt">
+    
+
+    <script>
+        function changecolor(){
+            const b1 = document.getElementById("head");
+            b1.style.backgroundColor="lightblue";
+            b1.style.color="red"
+          
+        }
+        function aaddpara(){
+            const b2 =document.createElement("p");
+            b2.textContent="this is new paragaph";
+            document.body.appendChild(b2)
+        }
+
+        function rmpara(){
+            const rm =document.querySelector("p");
+            rm.remove();
+        }
+         function chnghead(){
+            let newline =  document.getElementById("txt").value;
+            let h1 = document.getElementById("head");
+            h1.textContent=newline;
+        }
+      
+      
+    </script>
+</body>
+</html>

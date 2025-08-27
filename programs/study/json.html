@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let user ={
+            name:"oneteam",age:"10",
+            city:"thrissure"
+
+        }
+        let userString = JSON.stringify(user);
+        console.log(userString);
+ 
+        let userParse = JSON.parse(userString);
+        console.log(userParse);
+
+        localStorage.setItem("username","hari");
+        let data=localStorage.getItem("username");
+        console.log(data);
+        let rm = localStorage.removeItem("username");
+        console.log(rm);
+
+        localStorage.clear();
+        let cart={
+            items:["pizza","burger","fries"],total:500
+        }
+        localStorage.setItem("cart",JSON.stringify(cart));
+
+        let savedCart =JSON.parse(localStorage.getItem("cart"));
+        console.log(savedCart.items[1]);
+
+    </script>
+</body>
+</html>

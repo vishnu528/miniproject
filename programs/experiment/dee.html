@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cool{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body id="body">
+      <form action="" id="form">
+        <label for="" >Name:</label>
+        <input type="text" name="" id="name" placeholder="enter your name"><br><br>
+        <button type="submit" id="">save</button>
+      
+        </form>
+        <br>
+          <button type="submit" id="cng" onclick="add()">change color</button>
+         <button type="submit" id="rmv" onclick="remov()">remove color</button>
+        <p id="para" style="color: red;"></p>
+        <p id="paraa">this is the end</p>
+    
+
+
+    <script>
+        const  txt = document.getElementById("name");
+         txt.addEventListener("keyup",(e) => {
+            console.log(e.target.value)
+
+         })
+        const  frm = document.getElementById("form");
+
+        frm.addEventListener("submit",(e) =>{
+            e.preventDefault();
+
+            const nme =document.getElementById("name").value;
+            const pr =document.getElementById("para");
+
+            try{
+            if(nme === ""){
+                alert("enter your name");
+
+            }else{
+               pr.textContent="you have enterd the name"
+
+                throw new Error("you have enterd the name");
+
+            }
+
+            }
+        catch(err){
+            console.log("error",err)
+        }
+
+        })
+        function add(){
+        const add = document.getElementById("body")
+        add.classList.add("cool");
+        }
+          function remov(){
+        const rm = document.getElementById("body")
+        rm.classList.remove("cool");
+        }
+
+
+        function color(){
+        const prr=document.getElementById("paraa");
+        prr.style.color="red";
+        }
+        color();
+       
+
+        
+     
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #para{
+            background-color:aqua;
+        }
+        .main{
+            background-color: lightcoral;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="head">welcome to my web page</h1>
+    <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet cupiditate iusto accusantium, quisquam repellat porro consectetur itaque quia animi. Nihil autem minus incidunt quaerat et obcaecati minima. Quod, earum consequuntur.</p>
+    <button type="submit" onclick="nn()">add color</button>
+    <button type="submit" onclick="rm()">remove color</button>
+        <button type="submit" onclick="addatrb()">add attribute </button>
+
+    <script>
+        function nn(){
+            const nn = document.getElementById("head");
+            nn.classList.add("main")
+
+        }
+           function rm(){
+            const nn = document.getElementById("head");
+            nn.classList.remove("main")
+
+        }
+        function addatrb(){
+            const b1 = document.getElementById("head");
+            b1.setAttribute("class","chumma");
+        }
+    </script>
+</body>
+</html>
+
+    <!-- <script>
+        function fn(){
+            const fn = document.getElementById("para");
+            fn.style.backgroundColor = "blue";
+        }
+
+        // fn();
+
+    </script> -->
+
+    <!-- <script>
+        function nw(){
+            const nw = document.createElement("p");
+            nw.textContent="new para";
+            document.body.appendChild(nw)
+            
+        }
+        nw();
+    </script> -->

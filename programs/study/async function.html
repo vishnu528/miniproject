@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p style="color: brown;" id="style"></p>
+    <table border="1" id="tb1">
+        <th>Name</th>
+        <th>place</th>
+        <th>type</th>
+
+    </table>
+     
+
+    <script>
+        function fetchdata(){
+            return promise=new Promise((resolve)=>{
+                setTimeout(()=>{
+                    resolve([
+                        {name:"oneteam",place:"kochi",onoff:"online"},
+                        {name:"logistic",place:"thrissur",onoff:"offline"},
+                        {name:"digitalmt",place:"malappuram",onoff:"online"},
+                        {name:"python",place:"aluva",onoff:"offline"}
+
+                    ])
+                },3000)
+            })
+        }
+        async function loaddata(){
+            let tb1=document.getElementById("tb1");
+            const status = document.getElementById("style");
+            try{
+                let content = await fetchdata();
+                content.map((val)=>{
+
+               
+                let tr = document.createElement("tr");
+                let tdname = document.createElement("td");
+                tdname.innerHTML = val.name;
+
+                let tdplace = document.createElement("td");
+                tdplace.innerText = val.place;
+
+                let tdtype = document.createElement("td");
+                tdtype.innerText = val.onoff;
+                tr.appendChild(tdtype);
+                tr.appendChild(tdname);
+                tr.appendChild(tdplace);
+                tb1.appendChild(tr);
+            })
+            status.innerText="";
+
+            }catch(err){
+                console.log("error loading data:",err);
+            }
+
+        }
+        loaddata();
+    </script>
+</body>
+</html>
